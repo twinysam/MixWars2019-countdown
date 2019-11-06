@@ -49,26 +49,15 @@
 	<script src="js/jquery.countdown.min.js"></script>
 	<script>
 		$(document).ready(function () {
-			var breXit = moment.tz("2019-11-10 18:00:00", "Europe/London");
+			var deadLine = moment.tz("2019-11-10 18:00:00", "Europe/London");
 
-			$('#clock').countdown(breXit.toDate(), function (event) {
+			$('#clock').countdown(deadLine.toDate(), function (event) {
 				$(this).html(event.strftime('' +
 					'<div class="time">%D  <span class="labels">days</span></div>' +
 					'<div class="time">%H  <span class="labels">hours</span></div>' +
 					'<div class="time">%M  <span class="labels">minutes</span></div>' +
 					'<div class="time">%S <span class="labels">seconds</span></div>'));
 			});
-
-			$('#newsTicker').webTicker({
-				height: '50px',
-				duplicate: true,
-				rssfrequency: 30,
-				rssurl: false,
-				startEmpty: true,
-				hoverpause: false,
-				transition: "linear"
-			});
-
 		});
 	</script>
 </body>
