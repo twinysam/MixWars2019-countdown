@@ -2,6 +2,8 @@
 
 A quick clone of my [Brexit Countdown](https://github.com/twinysam/BrexitCountdown2019), re-purposed for the first competition by **r/mixingmastering** in order for last-minute submitters to know up until when they can send their mixes.
 
+**https://twinysam.github.io/MixWars2019-countdown/**
+
 ## Dependencies
 
  - [Bootstrap](https://github.com/twbs/bootstrap)
