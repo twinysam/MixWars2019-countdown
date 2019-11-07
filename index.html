@@ -32,7 +32,8 @@
 					<!--<div class="time">48 <span class="labels">days</span></div>
 						<div class="time">23 <span class="labels">hours</span></div>
 						<div class="time">24 <span class="labels">minutes</span></div>
-						<div class="time">57 <span class="labels">seconds</span></div>-->
+						<div class="time">57 <span class="labels">seconds</span></div>
+						<p>Time is up! No more submissions. Until next time (if there is one).</p>-->
 				</div>
 
 			</div>
@@ -47,9 +48,9 @@
 	<script>
 		$(document).ready(function() {
 
-			var deadLine = moment.tz("2019-11-10 18:00:00", "Europe/London");
-			//var deadLine = moment.tz("2019-11-07 19:15:00", "Europe/London");
-			//var checkTime = document.getElementById('tSecond');
+			//var deadLine = moment.tz("2019-11-10 18:00:00", "Europe/London");
+			var deadLine = moment.tz("2019-11-07 17:39:00", "America/Argentina/Buenos_Aires");
+			
 
 			$('#clock').countdown(deadLine.toDate(), function(event) {
 				$(this).html(event.strftime('' +
@@ -58,11 +59,16 @@
 					'<div id="tMinute" class="time">%M  <span class="labels">minutes</span></div>' +
 					'<div id="tSecond" class="time">%S <span class="labels">seconds</span></div>'));
 			});
-
+			
+			var checkDay = document.getElementById('tDay').textContent.includes("00");
+			var checkHour = document.getElementById('tHour').textContent.includes("00");
+			var checkMinute = document.getElementById('tMinute').textContent.includes("00");
+			var checkSecond = document.getElementById('tSecond').textContent.includes("00");
+			var checkTime = checkDay  && checkHour  && checkMinute && checkSecond;
 
 			$('#clock').on('DOMSubtreeModified', function() {
 				// check if seconds are 00
-				if (document.getElementById('tDay').textContent.includes("00") && document.getElementById('tHour').textContent.includes("00") && document.getElementById('tMinute').textContent.includes("00") && document.getElementById('tSecond').textContent.includes("00")) {
+				if (checkTime) {
 
 					$(this).html('<p>Time is up! No more submissions. Until next time (if there is one).</p>');
 				}
