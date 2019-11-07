@@ -48,6 +48,7 @@
 		$(document).ready(function() {
 
 			var deadLine = moment.tz("2019-11-10 18:00:00", "Europe/London");
+			//var deadLine = moment.tz("2019-11-07 19:15:00", "Europe/London");
 			//var checkTime = document.getElementById('tSecond');
 
 			$('#clock').countdown(deadLine.toDate(), function(event) {
@@ -58,13 +59,16 @@
 					'<div id="tSecond" class="time">%S <span class="labels">seconds</span></div>'));
 			});
 
+
 			$('#clock').on('DOMSubtreeModified', function() {
 				// check if seconds are 00
-				if (document.getElementById('tSecond').textContent.includes("00")) {
+				if (document.getElementById('tDay').textContent.includes("00") && document.getElementById('tHour').textContent.includes("00") && document.getElementById('tMinute').textContent.includes("00") && document.getElementById('tSecond').textContent.includes("00")) {
 
 					$(this).html('<p>Time is up! No more submissions. Until next time (if there is one).</p>');
 				}
 			});
+
+
 		});
 
 	</script>
