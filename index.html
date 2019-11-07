@@ -47,7 +47,7 @@
 	<script>
 		$(document).ready(function() {
 
-			var deadLine = moment.tz("2019-11-07 02:45:00", "America/Argentina/Buenos_Aires");
+			var deadLine = moment.tz("2019-11-10 18:00:00", "Europe/London");
 			//var checkTime = document.getElementById('tSecond');
 
 			$('#clock').countdown(deadLine.toDate(), function(event) {
@@ -58,10 +58,8 @@
 					'<div id="tSecond" class="time">%S <span class="labels">seconds</span></div>'));
 			});
 
-
 			$('#clock').on('DOMSubtreeModified', function() {
-				// check 0 everywhere here
-				//if ('#tSecond'.textContent.includes("00")) {
+				// check if seconds are 00
 				if (document.getElementById('tSecond').textContent.includes("00")) {
 
 					$(this).html('<p>Time is up! No more submissions. Until next time (if there is one).</p>');
